@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Jul 25 05:52:37 2018
 
@@ -7,10 +6,7 @@ Created on Wed Jul 25 05:52:37 2018
 Linked List Implementaion
 
 """
-"""
-Linked List Implementation
 
-"""
 
 class Node:
     def __init__(self, initdata):
@@ -81,16 +77,22 @@ class UnorderedList:
     def index(self, item):
         count = 0 # head is 0 
         current = self.head
+#        print(current.data)
         
         if current.getData() == item:
-            index = 0
+            pass
         else:
             while current != None:
-                count += 1
+                count = count + 1
                 current = current.getNext()
+#                print(current.data)
                 if current.getData() == item:
-                    index = count
-        return index
+                    break
+        return count
+    
+    def pop(self):
+        current = self.head 
+        self.head = current.getNext()
         
 
 if __name__ == "__main__":
@@ -119,5 +121,12 @@ if __name__ == "__main__":
 
     newList.remove(20)
     print(newList.search(20))
+    print(newList.search(45))
     
-    newList.index(45)
+    newList.pop()
+    print(newList.size())
+    
+    newList.add(89)
+    newList.add(74)
+    newList.add(23)
+    print(newList.index(45))
