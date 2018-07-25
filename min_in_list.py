@@ -9,5 +9,6 @@ def min_in_list_quad(given_list):
     min = None
     for element1 in len(given_list):
         for element1+1 in len(given_list)-element1:
+            if element1 < 
 
 def min_in_list_lin(given_list):    

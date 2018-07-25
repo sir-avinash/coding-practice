@@ -61,9 +61,7 @@ class Fraction:
         diff = self - other         
         return diff.num > 0
         
-            
         
-
     
 def main():
     
