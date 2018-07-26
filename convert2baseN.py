@@ -14,7 +14,7 @@ from stack import Stack
 
 def convert2baseN(num, base):
 
-    if base > 36
+    if base > 36:
         ValueError('Only bases upto 36 allowed :-/')    
     
     digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -23,18 +23,18 @@ def convert2baseN(num, base):
         
     while num > 0:
         rem = num % base        
-        base_stack.push(rem)
+        base_stack.push(digits[rem])
         num = num // base
 
     base_num = ""
     while not base_stack.isEmpty():
-        base_num += str(base_stack.pop())
+        base_num += base_stack.pop()
         
-    return int(base_num)
+    return base_num
 
 if __name__ == "__main__":
     
     test_num = 88888888898676895327138598558735749026431764198264237584
-    test_base = 3
+    test_base = 22
     test_num_base2 = convert2baseN(test_num, test_base)
     print(test_num_base2)    
