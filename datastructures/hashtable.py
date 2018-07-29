@@ -113,4 +113,6 @@ if __name__ == "__main__":
     
     new[82] = 'eightytwo'
     
+    print(new.keys)
+    print(new.values)
     print(new[22])
