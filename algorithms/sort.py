@@ -124,14 +124,14 @@ def shellSort(alist):
     
 def mergeSort(alist):
     if len(alist) == 1:
-        print('sorted: ' + str(alist))
+#        print('sorted: ' + str(alist))
         return alist
     else:
         mid = len(alist)//2
         aleft = mergeSort(alist[0:mid])
         aright = mergeSort(alist[mid:len(alist)])
         ####### 
-        print('merging:' + str(aleft) + str(aright))
+#        print('merging:' + str(aleft) + str(aright))
         i = j = k = 0
         while i < len(aleft) and j < len(aright):
             if aleft[i] < aright[j]:
@@ -141,11 +141,40 @@ def mergeSort(alist):
                 alist[k] = aright[j]
                 j += 1
             k += 1
-        print(alist)
+#        print(alist)
         return alist
 
 
-#def quickSort(alist):    
+def partition(alist, start, end):
+    pivotValue = alist[start]
+    leftMark = start + 1
+    rightMark = end
+    done = False
+    
+    while not done:
+        while leftMark <= rightMark and alist[leftMark] <= pivotValue:
+            leftMark += 1
+            
+        while leftMark <= rightMark and alist[rightMark] >= pivotValue:
+            rightMark -= 1
+            
+        if leftMark > rightMark:
+            done = True
+        else:
+            alist[leftMark], alist[rightMark] = alist[rightMark], alist[leftMark]
+
+    alist[start], alist[rightMark] = alist[rightMark], alist[start]    
+    return rightMark
+
+def quickSortBackend(alist, start, end):
+    if start < end:
+        splitvalue = partition(alist, start, end)
+        quickSortBackend(alist[start:splitvalue-1], start, splitvalue-1)
+        quickSortBackend(alist[splitvalue+1:end], splitvalue+1, end)        
+    
+def quickSort(alist):
+    return quickSortBackend(alist,0,len(alist)-1)
+    
     
 
 
@@ -158,4 +187,4 @@ if __name__ == "__main__":
     print(insertionSort(alist))
     print(shellSort(alist))
     print(mergeSort(alist))
-#    print(quickSort(alist))
+    print(quickSort(alist))
