@@ -86,19 +86,67 @@ def shellSort(alist):
     return alist        
 
 
+#def merge(aleft, aright):
+#    import sys
+#    
+#    asize = len(aleft) + len(aright)
+#    alist = [None]*asize
+#    
+#    aright.append(sys.maxsize)
+#    aleft.append(sys.maxsize)
+#
+#    i=0
+#    j=0
+#    
+#    for k in range(asize+1):
+#        if aleft[i] < aright[j]:
+#            alist[k] = aleft[i]
+#            i += 1
+#        else:
+#            alist[k] = aright[j]
+#            j += 1
+#        
+#    return alist    
+#
+#def mergeSortHelper(alist, start, end):
+#    if start < end:
+#        mid = len(alist)//2
+#        aleft = alist[start:mid]
+#        aright = alist[mid:end+1]
+#        aleft = mergeSortHelper(aleft, start, mid)
+#        aright = mergeSortHelper(aright, mid, end+1)
+#        alist_sorted = merge(aleft, aright)
+#        return alist_sorted                
+#
+#def mergeSort(alist):
+#    return mergeSortHelper(alist, 0, len(alist)-1)
+#    
+    
 def mergeSort(alist):
-    if len(alist) > 1:
-        split = alist//2
-        aleft = alist[:split]
-        aright = alist[split:]
-        
-        mergesort(aleft)
-        mergesort(aright)
-    
-        
-    
-#def quickSort(alist):    
+    if len(alist) == 1:
+        print('sorted: ' + str(alist))
+        return alist
+    else:
+        mid = len(alist)//2
+        aleft = mergeSort(alist[0:mid])
+        aright = mergeSort(alist[mid:len(alist)])
+        ####### 
+        print('merging:' + str(aleft) + str(aright))
+        i = j = k = 0
+        while i < len(aleft) and j < len(aright):
+            if aleft[i] < aright[j]:
+                alist[k] = aleft[i]
+                i += 1
+            else:
+                alist[k] = aright[j]
+                j += 1
+            k += 1
+        print(alist)
+        return alist
 
+
+#def quickSort(alist):    
+    
 
 
 
@@ -109,5 +157,5 @@ if __name__ == "__main__":
     print(selectionSort(alist))
     print(insertionSort(alist))
     print(shellSort(alist))
-    print(mergesort(alist))
-    
+    print(mergeSort(alist))
+#    print(quickSort(alist))
