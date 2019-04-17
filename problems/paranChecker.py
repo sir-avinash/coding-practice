@@ -9,8 +9,14 @@ A Script to check if the given string has balanced paranthesis
 Deps: Custom Stack class
 
 """
+import os
+import inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+print("parentdir=",parentdir)
+os.sys.path.insert(0,parentdir)
 
-from stack import Stack
+from datastructures import stack
 
 def paranChecker(test_string):
     

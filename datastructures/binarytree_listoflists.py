@@ -15,18 +15,18 @@ def binTree(rootName):
     return [rootName, [],[]] ## Initialized left and right child nodes
 
 def insertRight(aTree, newRightBranch):
-    currRightNode = aTree.pop(2)
+    t = aTree.pop(2)
     
-    if len(currRightNode) > 1:
+    if len(t) > 1:
         aTree.insert(2, [newRightBranch, [], t])
     else:
         aTree.insert(2, [newRightBranch, [], []])
     return aTree
 
 def insertLeft(aTree, newLeftBranch):
-    currLeftNode = aTree.pop(1)
+    t = aTree.pop(1)
     
-    if len(currLeftNode) > 1:
+    if len(t) > 1:
         aTree.insert(1, [newLeftBranch, t, []])
     else:
         aTree.insert(1, [newLeftBranch, [], []])
