@@ -84,43 +84,7 @@ def shellSort(alist):
             alist = gapInsertionSort(alist, start, gapcount)
         gapcount = gapcount//2    
     return alist        
-
-
-#def merge(aleft, aright):
-#    import sys
-#    
-#    asize = len(aleft) + len(aright)
-#    alist = [None]*asize
-#    
-#    aright.append(sys.maxsize)
-#    aleft.append(sys.maxsize)
-#
-#    i=0
-#    j=0
-#    
-#    for k in range(asize+1):
-#        if aleft[i] < aright[j]:
-#            alist[k] = aleft[i]
-#            i += 1
-#        else:
-#            alist[k] = aright[j]
-#            j += 1
-#        
-#    return alist    
-#
-#def mergeSortHelper(alist, start, end):
-#    if start < end:
-#        mid = len(alist)//2
-#        aleft = alist[start:mid]
-#        aright = alist[mid:end+1]
-#        aleft = mergeSortHelper(aleft, start, mid)
-#        aright = mergeSortHelper(aright, mid, end+1)
-#        alist_sorted = merge(aleft, aright)
-#        return alist_sorted                
-#
-#def mergeSort(alist):
-#    return mergeSortHelper(alist, 0, len(alist)-1)
-#    
+    
     
 def mergeSort(alist):
     if len(alist) == 1:

@@ -7,7 +7,7 @@ Created on Mon Jul 30 18:12:58 2018
 
 class BinHeap:
     def __init__(self):
-        self.heapList = [0] ## to tree starts from index1
+        self.heapList = [0] ## tree starts from index1
         self.currentSize = 0
         
     def isEmpty(self):
